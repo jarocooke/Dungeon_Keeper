@@ -8,6 +8,6 @@
 		end
 		
 		def item_description
-			puts @reference.to_s + ": " + @description
+			puts reference.to_s + ": " + description
 		end
 	end
