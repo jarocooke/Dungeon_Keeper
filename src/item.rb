@@ -1,10 +1,10 @@
 	class Item
 		attr_accessor :reference, :name, :description
 		
-		def initialize(reference, name, description)
-			@reference = reference
-			@name = name
-			@description = description
+		def initialize(args)
+			@reference = args[:reference]
+			@name = args[:name]
+			@description = args[:description]
 		end
 		
 		def item_description

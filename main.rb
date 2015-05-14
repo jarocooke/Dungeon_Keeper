@@ -12,33 +12,33 @@ my_dungeon.help
 
 
 #Add items ---------------------------------
-my_dungeon.add_item(:spade, "Spade", "a dirty spade")
-my_dungeon.add_item(:skull, "Skull", "a scary skull, with tufts of hair still stuck to the top of it")
-my_dungeon.add_item(:coconut, "Coconut", "a giant hairy coconut!")
-my_dungeon.add_item(:egg, "Egg", "a small yellowish egg")
+my_dungeon.add_item({reference: :spade, name: "Spade", description: "a dirty spade"})
+my_dungeon.add_item({reference: :skull, name: "Skull", description: "a scary skull, with tufts of hair still stuck to the top of it"})
+my_dungeon.add_item({reference: :coconut, name: "Coconut", description: "a giant hairy coconut!"})
+my_dungeon.add_item({reference: :egg, name: "Egg", description: "a small yellowish egg"})
 # ------------------------------------------
 
 
 #Add rooms ---------------------------------
-my_dungeon.add_room(:large_cave, "Large Cave", "a large cavernous cave", { :west => :small_cave }, [:spade, :skull])
-my_dungeon.add_room(:small_cave, "Small Cave", "a small claustrophobic cave", { :east => :large_cave, :south => :medium_cave }, [:coconut])
-my_dungeon.add_room(:medium_cave, "Medium Cave", "a medium sized cave", { :north => :small_cave, :east => :long_tunnel, :south => :short_tunnel }, [])
+my_dungeon.add_room({reference: :large_cave, name: "Large Cave", description: "a large cavernous cave", connections: { :west => :small_cave }, items: [:spade, :skull])
+my_dungeon.add_room({reference: :small_cave, name: "Small Cave", description: "a small claustrophobic cave", connections: { :east => :large_cave, :south => :medium_cave }, items: [:coconut])
+my_dungeon.add_room({referencE: :medium_cave, name: "Medium Cave", description: "a medium sized cave", connections: { :north => :small_cave, :east => :long_tunnel, :south => :short_tunnel }, items: []})
 
 	#Rooms to the east of medium cave
-	my_dungeon.add_room(:long_tunnel, "Long Tunnel", "a long dark tunnel", { :west => :medium_cave, :east => :tiny_cave }, [:egg])
-	my_dungeon.add_room(:tiny_cave, "Tiny Cave", "a very small cave, you can barely stand up in", { :west => :long_tunnel, :north => :medium_cellar }, [])
-	my_dungeon.add_room(:medium_cellar, "Medium Cellar", "an average sized cellar", { :south => :tiny_cave, :north => :small_cellar, :east => :large_cellar }, [])
+	my_dungeon.add_room({reference: :long_tunnel, name: "Long Tunnel", description: "a long dark tunnel", connections: { :west => :medium_cave, :east => :tiny_cave }, items: [:egg]})
+	my_dungeon.add_room({reference: :tiny_cave, name: "Tiny Cave", description: "a very small cave, you can barely stand up in", connections: { :west => :long_tunnel, :north => :medium_cellar }, items: []})
+	my_dungeon.add_room({reference: :medium_cellar, name: "Medium Cellar", description: "an average sized cellar", connections: { :south => :tiny_cave, :north => :small_cellar, :east => :large_cellar }, items: []})
 
 		#Rooms to the north of medium cellar
-		my_dungeon.add_room(:small_cellar, "Small Cellar", "a small cellar", { :south => :medium_cellar }, [])
+		my_dungeon.add_room({reference: :small_cellar, name: "Small Cellar", description: "a small cellar", connections: { :south => :medium_cellar }, items: []})
 
 		#Rooms to the east of medium cellar
-		my_dungeon.add_room(:large_cellar, "Large Cellar", "a large cellar", { :west => :medium_cellar }, [])
+		my_dungeon.add_room({reference: :large_cellar, name: "Large Cellar", description: "a large cellar", connections: { :west => :medium_cellar }, items: []})
 
 	#Rooms to the south of medium cave
-	my_dungeon.add_room(:short_tunnel, "Short Tunnel", "a short, wide tunnel", { :north => :medium_cave, :south => :waterfall_cave }, [])
-	my_dungeon.add_room(:waterfall_cave, "Waterfall Cave", "a cave with a large waterfall to the side", { :north => :short_tunnel, :east => :hidden_cave }, [])
-	my_dungeon.add_room(:hidden_cave, "Hidden Cave", "a secret cave hidden behind the waterfall", { :west => :waterfall_cave }, [])
+	my_dungeon.add_room({reference: :short_tunnel, name: "Short Tunnel", description: "a short, wide tunnel", connections: { :north => :medium_cave, :south => :waterfall_cave }, items: []})
+	my_dungeon.add_room({reference: :waterfall_cave, name: "Waterfall Cave", description: "a cave with a large waterfall to the side", connections: { :north => :short_tunnel, :east => :hidden_cave }, items: []})
+	my_dungeon.add_room({reference: :hidden_cave, name: "Hidden Cave", description: "a secret cave hidden behind the waterfall", connections: { :west => :waterfall_cave }, items: []})
 # -----------------------------------------
 
 

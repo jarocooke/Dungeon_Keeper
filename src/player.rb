@@ -1,3 +1,5 @@
+# consider making this a Struct
+
 	class Player
 		attr_accessor :name, :location, :inventory
     
