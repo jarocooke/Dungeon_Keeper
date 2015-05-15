@@ -45,6 +45,10 @@ class Dungeon
 		find_room_in_dungeon(@player.location).connections[direction]
 	end
   
+	def items_in_room
+		find_room_in_dungeon(@player.location).items
+	end
+  
 	def go(direction)
 		if find_room_in_dungeon(@player.location).connections.keys.include?(direction) == true
 			#system "clear"
@@ -58,10 +62,9 @@ class Dungeon
 	
 	
 	def pickup_item(object)
-		available_items = find_room_in_dungeon(@player.location).items
-		if available_items.include?(object) == true
+		if items_in_room.include?(object) == true
 			puts "You pickup the " + object.to_s + "\n"
-			available_items.delete(object)
+			items_in_room.delete(object)
 			#@player.add_to_inventory(object)
 			@player.inventory << object
 		else
@@ -73,7 +76,7 @@ class Dungeon
 		if @player.inventory.include?(object) == true
 			puts "You drop the " + object.to_s + "\n"
 			@player.inventory.delete(object)
-			find_room_in_dungeon(@player.location).items << object
+			items_in_room << object
 		else
 			puts "That item is not in your inventory"
 		end
