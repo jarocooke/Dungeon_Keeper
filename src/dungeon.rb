@@ -58,9 +58,10 @@ class Dungeon
 	
 	
 	def pickup_item(object)
-		if find_room_in_dungeon(@player.location).items.include?(object) == true
+		available_items = find_room_in_dungeon(@player.location).items
+		if available_items.include?(object) == true
 			puts "You pickup the " + object.to_s + "\n"
-			find_room_in_dungeon(@player.location).items.delete(object)
+			available_items.delete(object)
 			#@player.add_to_inventory(object)
 			@player.inventory << object
 		else
