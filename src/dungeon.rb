@@ -1,3 +1,7 @@
+require_relative 'player'
+require_relative 'room'
+require_relative 'item'
+	
 class Dungeon
 	attr_accessor :player, :item
   
@@ -7,12 +11,12 @@ class Dungeon
 		@items = []
 	end
   
-	def add_room(reference, name, description, connections, items)
-		@rooms << Room.new(reference, name, description, connections, items)
+	def add_room(args)
+		@rooms << Room.new(args)
 	end
   
-	def add_item(reference, name, description)
-		@items << Item.new(reference, name, description)
+	def add_item(args)
+		@items << Item.new(args)
 	end
   
 	def start(location)
@@ -100,12 +104,6 @@ class Dungeon
 	def look_around
 		puts "You find the following items:"
 		find_room_in_dungeon(@player.location).items.each { |item| find_item_in_dungeon(item).item_description }
-	end
-	
-	require_relative 'player'	
-
-	require_relative 'room'
-
-	require_relative 'item'		
+	end		
 
 end

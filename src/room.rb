@@ -1,12 +1,12 @@
 	class Room
 		attr_accessor :reference, :name, :description, :connections, :items
     
-		def initialize(reference, name, description, connections, items)
-			@reference = reference
-			@name = name
-			@description = description
-			@connections = connections
-			@items = items
+		def initialize(args)
+			@reference = args[:reference]
+			@name = args[:name]
+			@description = args[:description]
+			@connections = args[:connections]
+			@items = args[:items]
 		end
     
 		def full_description
