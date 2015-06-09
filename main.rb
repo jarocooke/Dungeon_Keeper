@@ -1,7 +1,7 @@
 #require 'rubygems'
 #require 'debugger'
 
-require_relative 'src/dungeon'
+require_relative 'lib/dungeon'
 
 #Create dungeon
 system "clear"
